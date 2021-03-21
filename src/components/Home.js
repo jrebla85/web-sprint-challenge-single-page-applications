@@ -13,13 +13,12 @@ const StyledDiv = styled.div`
     background-size: cover;
 `
 const StyledA = styled.a`
-    text-align: center;
-    height: 15%; 
+    text-align: center; 
     width: 15%;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: white;
-    color: black;
+    background-color: #e0c9af;
+    color: #d42d2f;
     padding: 5px;
     margin: 25% auto;
     text-decoration: none;
@@ -28,8 +27,8 @@ const StyledA = styled.a`
     border-radius: 15px;
 
     :hover {
-        background-color: black;
-        color: white;
+        background-color: #d42d2f;
+        color: #e0c9af;
     }
 `
 

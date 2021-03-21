@@ -13,14 +13,14 @@ const StyledDiv = styled.div`
 
 const StyledH1 = styled.h1`
     font-family: 'Berkshire Swash', cursive;
-    color: black;
+    color: #d42d2f;
 `
 
 const StyledA = styled.a`
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: white;
-    color: black;
+    background-color: #e0c9af;
+    color: #d42d2f;
     padding: 5px;
     margin: 2px;
     text-decoration: none;
@@ -29,8 +29,8 @@ const StyledA = styled.a`
     border-radius: 10px;
 
     :hover {
-        background-color: black;
-        color: white;
+        background-color: #d42d2f;
+        color: #e0c9af;
     }
 `
 
@@ -41,7 +41,7 @@ const Header = () => {
         <StyledDiv>
             <StyledH1>Lambda Eats</StyledH1>
             <nav>
-                <StyledA href="/home">Home</StyledA>
+                <StyledA href="/">Home</StyledA>
                 <StyledA href="/pizza">Order</StyledA>
             </nav>
         </StyledDiv>
