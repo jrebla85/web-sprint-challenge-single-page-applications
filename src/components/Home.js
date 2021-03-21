@@ -13,6 +13,9 @@ const StyledDiv = styled.div`
     background-size: cover;
 `
 const StyledA = styled.a`
+    text-align: center;
+    height: 15%; 
+    width: 15%;
     font-weight: bold;
     letter-spacing: 2px;
     background-color: white;
