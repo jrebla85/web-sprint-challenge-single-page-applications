@@ -21,6 +21,8 @@ const StyledA = styled.a`
     margin: 25% auto;
     text-decoration: none;
     border: solid 1px black;
+    box-shadow: 2px 1px 1px grey;
+    border-radius: 15px;
 
     :hover {
         background-color: black;

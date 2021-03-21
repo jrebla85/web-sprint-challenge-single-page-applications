@@ -25,6 +25,8 @@ const StyledA = styled.a`
     margin: 2px;
     text-decoration: none;
     border: solid 1px black;
+    box-shadow: 2px 1px 1px grey;
+    border-radius: 10px;
 
     :hover {
         background-color: black;
@@ -40,7 +42,7 @@ const Header = () => {
             <StyledH1>Lambda Eats</StyledH1>
             <nav>
                 <StyledA href="/home">Home</StyledA>
-                <StyledA href="/Help">Help</StyledA>
+                <StyledA href="/pizza">Order</StyledA>
             </nav>
         </StyledDiv>
     )
