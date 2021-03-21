@@ -25,6 +25,7 @@ const StyledP = styled.p`
     font-size: large;
     vertical-align: middle;
     line-height: 90px;
+    border-radius: 15px;
 `
 const StyledButton = styled.button`
     margin-top: 5%;
