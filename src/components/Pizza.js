@@ -26,6 +26,30 @@ const StyledP = styled.p`
     vertical-align: middle;
     line-height: 90px;
 `
+const StyledButton = styled.button`
+    margin-top: 5%;
+    border: none;
+    background-color: #e0c9af;
+`
+const StyledA = styled.a `
+    text-align: center; 
+    width: 15%;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: #e0c9af;
+    color: #d42d2f;
+    padding: 5px;
+    margin: 25% auto;
+    text-decoration: none;
+    border: solid 1px black;
+    box-shadow: 2px 1px 1px grey;
+    border-radius: 15px;
+
+    :hover {
+        background-color: #d42d2f;
+        color: #e0c9af;
+    }
+`
 
 const Pizza = () => {
 
@@ -78,7 +102,9 @@ const Pizza = () => {
                 <div>
                     <textarea placeholder="Let us know!" />
                 </div>
-                <input type="submit" />
+                <StyledButton>
+                    <StyledA href="./Success">Order Now!</StyledA>
+                </StyledButton>
             </StyledForm>
         </StyledDiv>
     )
