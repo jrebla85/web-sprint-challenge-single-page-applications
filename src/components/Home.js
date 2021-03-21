@@ -1,28 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import img from '../img/pizza-hero.jpg'
 
 const StyledDiv = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 2%;
-    padding: 5%;
+    margin-top: 5%;
+    background: black url("${img}") no-repeat center;
+    height: 100%;
+    background-size: cover;
 `
-
-const StyledH1 = styled.h1`
-    font-family: 'Berkshire Swash', cursive;
-    color: black;
-`
-
 const StyledA = styled.a`
     font-weight: bold;
     letter-spacing: 2px;
     background-color: white;
     color: black;
     padding: 5px;
-    margin: 2px;
+    margin: 25% auto;
     text-decoration: none;
     border: solid 1px black;
 
@@ -32,18 +28,13 @@ const StyledA = styled.a`
     }
 `
 
-const Header = () => {
+const Home = () => {
 
-
-    return (
+    return(
         <StyledDiv>
-            <StyledH1>Lambda Eats</StyledH1>
-            <nav>
-                <StyledA href="/home">Home</StyledA>
-                <StyledA href="/Help">Help</StyledA>
-            </nav>
+            <StyledA href="/pizza">Pizza?</StyledA>
         </StyledDiv>
     )
 }
 
-export default Header
+export default Home
