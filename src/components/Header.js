@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
     align-items: center;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 2%;
+    margin-top: 1%;
     padding: 5%;
 `
 

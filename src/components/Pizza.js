@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const StyledDiv = styled.div`
@@ -54,17 +54,28 @@ const StyledA = styled.a `
 
 const Pizza = () => {
 
+    const [form, setForm] = useState({
+        size: '',
+        sauce: '',
+        pepperoni: false,
+        sausage: false,
+        bacon: false,
+        tomato: false,
+        olive: false,
+        instructions: ''
+    })
+
     return(
         <StyledDiv>
             <StyledForm>
             <StyledP>
                 Size
             </StyledP>
-                <select name="crust">
+                <select value={form.size} name="size">
                     <option value="">
                         Select a Size
                     </option>
-                    <option name="small">
+                    <option value="small">
                         Small
                     </option>
                     <option value="medium">
@@ -78,30 +89,36 @@ const Pizza = () => {
                     Sauce
                 </StyledP>
                 <div>
-                <input type="radio" value="classic-tomato" name="sauce" /> Classic Tomato
-                <input type="radio" value="garlic-parmesan" name="sauce" /> Garlic Parmesan
-                <input type="radio" value="bbq" name="sauce" /> BBQ
+                <label> Tomato Sauce
+                    <input checked={form.sauce === 'tomato'} type="radio" value="tomato" name="sauce" /> 
+                </label>
+                <label>Garlic Parmesan
+                    <input checked={form.sauce === 'parmesan'} type="radio" value="parmesan" name="sauce" /> 
+                </label>
+                <label> BBQ Sauce
+                    <input checked={form.sauce === 'bbq'} type="radio" value="bbq" name="sauce" />
+                </label>
                 </div>
                 <StyledP>
                     Toppings
                 </StyledP>
                 <div>
-                    <input type="checkbox" name="pepperoni" />
+                    <input checked={form.pepperoni} type="checkbox" name="pepperoni" />
                     Pepperoni
-                    <input type="checkbox" name="italian-sausage" />
+                    <input checked={form.sausage} type="checkbox" name="sausage" />
                     Italian Sausage
-                    <input type="checkbox" name="bacon" />
+                    <input checked={form.bacon} type="checkbox" name="bacon" />
                     Bacon
-                    <input type="checkbox" name="tomato" />
+                    <input checked={form.tomato} type="checkbox" name="tomato" />
                     Fresh Garden Tomato
-                    <input type="checkbox" name="olive" />
+                    <input checked={form.olive} type="checkbox" name="olive" />
                     Olives
                 </div>
                 <StyledP>
                     Any special instructions?
                 </StyledP>
                 <div>
-                    <textarea placeholder="Let us know!" />
+                    <textarea value={form.instructions} name="instructions" placeholder="Let us know!" />
                 </div>
                 <StyledButton>
                     <StyledA href="./Success">Order Now!</StyledA>
