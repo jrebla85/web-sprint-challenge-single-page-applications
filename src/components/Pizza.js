@@ -36,6 +36,7 @@ const StyledButton = styled.button`
     color: #d42d2f;
     border: solid 1px black;
     border-radius: 15px;
+    box-shadow: 2px 1px 1px grey;
 
     :hover {
         background-color: #d42d2f;
@@ -129,3 +130,4 @@ const Pizza = () => {
 }
 
 export default Pizza
+
