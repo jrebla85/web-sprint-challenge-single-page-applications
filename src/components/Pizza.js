@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const StyledDiv = styled.div`
     margin-top: 5%;
@@ -28,22 +29,12 @@ const StyledP = styled.p`
     border-radius: 15px;
 `
 const StyledButton = styled.button`
-    margin-top: 5%;
-    border: none;
-    background-color: #e0c9af;
-`
-const StyledA = styled.a `
     text-align: center; 
-    width: 15%;
     font-weight: bold;
-    letter-spacing: 2px;
+    margin-top: 5%;
     background-color: #e0c9af;
     color: #d42d2f;
-    padding: 5px;
-    margin: 25% auto;
-    text-decoration: none;
     border: solid 1px black;
-    box-shadow: 2px 1px 1px grey;
     border-radius: 15px;
 
     :hover {
@@ -73,7 +64,10 @@ const Pizza = () => {
 
     return(
         <StyledDiv>
-            <StyledForm>
+            <StyledForm onSubmit={event => {
+                event.preventDefault();
+                axios.post('./pizza', { form })
+            }}>
             <StyledP>
                 Size
             </StyledP>
@@ -127,7 +121,7 @@ const Pizza = () => {
                     <textarea onChange={change} value={form.instructions} name="instructions" placeholder="Let us know!" />
                 </div>
                 <StyledButton>
-                    <StyledA href="./Success">Order Now!</StyledA>
+                    Order Now!
                 </StyledButton>
             </StyledForm>
         </StyledDiv>
