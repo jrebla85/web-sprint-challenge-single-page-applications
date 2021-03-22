@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import * as yup from 'yup'
 
 const StyledDiv = styled.div`
     margin-top: 5%;
@@ -43,10 +44,22 @@ const StyledButton = styled.button`
         color: #e0c9af;
     }
 `
+const schema = yup.object().shape({
+    orderName: yup.string().required('Name is required').min(2, 'Name must contain at least 2 characters.'),
+    size: yup.string().required('You must choose a size'),
+    sauce: yup.string().required('Please choose a sauce'),
+    pepperoni: yup.boolean(),
+    sausage: yup.boolean(),
+    bacon: yup.boolean(),
+    tomato: yup.boolean(),
+    olive: yup.boolean(),
+    instructions: yup.string()
+})
 
 const Pizza = () => {
 
     const [form, setForm] = useState({
+        orderName: '',
         size: '',
         sauce: '',
         pepperoni: false,
@@ -57,11 +70,17 @@ const Pizza = () => {
         instructions: ''
     })
 
+    const [disabled, setDisabled] = useState(true)
+
     const change = event => {
         const { checked, value, name, type } = event.target
         const valueToUse = type === 'checkbox' ? checked : value
         setForm({ ...form, [name]: valueToUse })
     }
+
+    useEffect(() => {
+        schema.isValid(form).then(valid => setDisabled(!valid))
+    }, [form])
 
     return(
         <StyledDiv>
@@ -69,6 +88,9 @@ const Pizza = () => {
                 event.preventDefault();
                 axios.post('./pizza', { form })
             }}>
+            <StyledP>
+                <input value={form.orderName} onChange={change} type="text" placeholder="Name" name="orderName"/>
+            </StyledP>
             <StyledP>
                 Size
             </StyledP>
@@ -121,7 +143,7 @@ const Pizza = () => {
                 <div>
                     <textarea onChange={change} value={form.instructions} name="instructions" placeholder="Let us know!" />
                 </div>
-                <StyledButton>
+                <StyledButton disabled={disabled}>
                     Order Now!
                 </StyledButton>
             </StyledForm>
