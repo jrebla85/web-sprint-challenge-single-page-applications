@@ -65,13 +65,19 @@ const Pizza = () => {
         instructions: ''
     })
 
+    const change = event => {
+        const { checked, value, name, type } = event.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        setForm({ ...form, [name]: valueToUse })
+    }
+
     return(
         <StyledDiv>
             <StyledForm>
             <StyledP>
                 Size
             </StyledP>
-                <select value={form.size} name="size">
+                <select onChange={change} value={form.size} name="size">
                     <option value="">
                         Select a Size
                     </option>
@@ -90,35 +96,35 @@ const Pizza = () => {
                 </StyledP>
                 <div>
                 <label> Tomato Sauce
-                    <input checked={form.sauce === 'tomato'} type="radio" value="tomato" name="sauce" /> 
+                    <input onChange={change} checked={form.sauce === 'tomato'} type="radio" value="tomato" name="sauce" /> 
                 </label>
                 <label>Garlic Parmesan
-                    <input checked={form.sauce === 'parmesan'} type="radio" value="parmesan" name="sauce" /> 
+                    <input onChange={change} checked={form.sauce === 'parmesan'} type="radio" value="parmesan" name="sauce" /> 
                 </label>
                 <label> BBQ Sauce
-                    <input checked={form.sauce === 'bbq'} type="radio" value="bbq" name="sauce" />
+                    <input onChange={change} checked={form.sauce === 'bbq'} type="radio" value="bbq" name="sauce" />
                 </label>
                 </div>
                 <StyledP>
                     Toppings
                 </StyledP>
                 <div>
-                    <input checked={form.pepperoni} type="checkbox" name="pepperoni" />
+                    <input onChange={change} checked={form.pepperoni} type="checkbox" name="pepperoni" />
                     Pepperoni
-                    <input checked={form.sausage} type="checkbox" name="sausage" />
+                    <input onChange={change} checked={form.sausage} type="checkbox" name="sausage" />
                     Italian Sausage
-                    <input checked={form.bacon} type="checkbox" name="bacon" />
+                    <input onChange={change} checked={form.bacon} type="checkbox" name="bacon" />
                     Bacon
-                    <input checked={form.tomato} type="checkbox" name="tomato" />
+                    <input onChange={change} checked={form.tomato} type="checkbox" name="tomato" />
                     Fresh Garden Tomato
-                    <input checked={form.olive} type="checkbox" name="olive" />
+                    <input onChange={change} checked={form.olive} type="checkbox" name="olive" />
                     Olives
                 </div>
                 <StyledP>
                     Any special instructions?
                 </StyledP>
                 <div>
-                    <textarea value={form.instructions} name="instructions" placeholder="Let us know!" />
+                    <textarea onChange={change} value={form.instructions} name="instructions" placeholder="Let us know!" />
                 </div>
                 <StyledButton>
                     <StyledA href="./Success">Order Now!</StyledA>
